@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import ProductContext from "../contexts/products";
 
-export default function ProductCreate({ onCreateProduct }) {
+export default function ProductCreate() {
+    const { onCreateProduct } = useContext(ProductContext)
     const initalState = {
         nama: "",
         deskripsi: "",

@@ -1,19 +1,24 @@
-import React from 'react'
-import ProductCard from './ProductCard';
+import React, { useContext } from "react";
+import ProductCard from "./ProductCard";
+import ProductContext from "../contexts/products";
 
-export default function ProductList({products, onDeleteProduct, onEditProduct}) {
+export default function ProductList({
+  onDeleteProduct,
+  onEditProduct,
+}) {
+  const { products } = useContext(ProductContext)
   return (
     <div className="cards">
-    {products.map((product) => {
-      return (
-        <ProductCard 
-          key={product.id}
-          product={product}
-          onDeleteProduct={onDeleteProduct}
-          onEditProduct={onEditProduct}
-        />
-      );
-    })}
-  </div>
-  )
+      {products.map((product) => {
+        return (
+          <ProductCard
+            key={product.id}
+            product={product}
+            onDeleteProduct={onDeleteProduct}
+            onEditProduct={onEditProduct}
+          />
+        );
+      })}
+    </div>
+  );
 }
